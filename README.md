@@ -2,6 +2,10 @@
 
 A simple web app that allows you to upload an image and uses a pre-trained ResNet50 model to determine its artistic style. Built with Vite, React, shadcn/ui, and Python.
 
+![Screenshot01](/screenshot01.png)
+
+![Screenshot02](/screenshot02.png)
+
 ## Features
 
 - Upload an image and get instant style identification
