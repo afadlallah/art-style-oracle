@@ -12,7 +12,7 @@ const ArtStyleInfo = () => {
 
       <p>
         Welcome to the Art Style Oracle! Upload any artwork image, and our AI will analyze it to determine
-        its artistic style, from Renaissance to Contemporary Art.
+        its artistic style.
       </p>
 
       <p>
@@ -28,6 +28,31 @@ const ArtStyleInfo = () => {
         <div className='border rounded-md p-3 text-center'>
           <h3 className='font-semibold mb-1'>Educational</h3>
           <p className='text-sm'>Learn about different art movements and their characteristics</p>
+        </div>
+      </div>
+
+      <div className='border rounded-md p-4'>
+        <h3 className='font-semibold mb-2'>Supported Art Styles</h3>
+        <div className='grid grid-cols-2 gap-x-4 gap-y-1 text-sm md:grid-cols-2'>
+          <span>Abstract Expressionism</span>
+          <span>Art Nouveau Modern</span>
+          <span>Baroque</span>
+          <span>Color Field Painting</span>
+          <span>Cubism</span>
+          <span>Early Renaissance</span>
+          <span>Expressionism</span>
+          <span>High Renaissance</span>
+          <span>Impressionism</span>
+          <span>Mannerism (Late Renaissance)</span>
+          <span>Minimalism</span>
+          <span>Naive Art (Primitivism)</span>
+          <span>Northern Renaissance</span>
+          <span>Pop Art</span>
+          <span>Post-Impressionism</span>
+          <span>Realism</span>
+          <span>Rococo</span>
+          <span>Romanticism</span>
+          <span>Symbolism</span>
         </div>
       </div>
     </div>
