@@ -1,30 +1,49 @@
-// Mocking an AI service for now
-// In a real application, this would connect to a machine learning model or API
-
+import axios from 'axios';
 import { artStyles } from '@/data/artStyles'
 
-interface AnalysisResult {
-  styleId: string
-  confidence: number
+const API_BASE_URL = 'http://localhost:5000/api';
+
+interface BackendResponse {
+  style: string;
+  confidence: number;
 }
 
-// This is a mock function that returns a random art style
-// In a real application, this would analyze the image using a ML model
+interface AnalysisResult {
+  styleId: string;
+  confidence: number;
+}
+
 export const analyzeImage = async (imageFile: File): Promise<AnalysisResult> => {
-  // Simulate API call delay
-  await new Promise(resolve => setTimeout(resolve, 1500))
+  const formData = new FormData();
+  formData.append('image', imageFile);
 
-  // Get all style IDs
-  const styleIds = Object.keys(artStyles)
+  try {
+    const response = await axios.post<BackendResponse>(
+      `${API_BASE_URL}/classify-image`,
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    );
 
-  // In a mock implementation, select a random style
-  const randomStyleId = styleIds[Math.floor(Math.random() * styleIds.length)]
+    const styleId = Object.keys(artStyles).find(
+      id => artStyles[id].name.toLowerCase() === response.data.style.toLowerCase()
+    );
 
-  // Generate a random confidence score between 60% and 98%
-  const confidence = 60 + Math.floor(Math.random() * 39)
+    if (!styleId) {
+      throw new Error(`Unknown art style: ${response.data.style}`);
+    }
 
-  return {
-    styleId: randomStyleId,
-    confidence
+    return {
+      styleId,
+      confidence: Number((response.data.confidence * 100).toFixed(2))
+    };
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data?.message || 'Failed to analyze image');
+    }
+    throw error;
   }
 }
