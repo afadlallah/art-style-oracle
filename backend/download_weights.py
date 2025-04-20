@@ -3,7 +3,10 @@ import requests
 from tqdm import tqdm
 
 
-def download_weights(weights_path='art_style_classifier.pth'):
+def download_weights(weights_path='models/art_style_classifier.pth'):
+    # Create models directory if it doesn't exist
+    os.makedirs(os.path.dirname(weights_path), exist_ok=True)
+
     if os.path.exists(weights_path):
         return
 
