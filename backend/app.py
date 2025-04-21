@@ -117,6 +117,9 @@ def predict_style(image_tensor: torch.Tensor) -> Tuple[str, float]:
 
         return predicted_style, confidence
 
+@app.route('/api/health')
+def health():
+    return jsonify({"status": "ok"})
 
 @app.route('/api/classify-image', methods=['POST'])
 def classify_image():
