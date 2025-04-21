@@ -2,6 +2,8 @@
 
 A simple web app that allows you to upload an image and uses a pre-trained ResNet50 model to determine its artistic style. Built with Vite, React, shadcn/ui, and Python.
 
+Try it out here: [https://art-style-oracle.vercel.app/](https://art-style-oracle.vercel.app/)
+
 ![Screenshot01](/screenshot01.png)
 
 ![Screenshot02](/screenshot02.png)
