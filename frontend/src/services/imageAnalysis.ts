@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { artStyles } from '@/data/artStyles'
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://kitcheny-essie-booklike.ngrok-free.dev/api';
 
 interface BackendResponse {
   style: string;
